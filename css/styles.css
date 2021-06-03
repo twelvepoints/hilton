@@ -1,0 +1,373 @@
+:root {
+  --primary: #053279;
+  --secondary: #151515;
+  --accent: #069bff;
+  --text: #454444;
+  --heading: #151515;
+  --background: #ededed;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+
+body {
+  font-size: 16px;
+  font-family: 'Nunito Sans', sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--white);
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+/* ------------------ */
+/* Search App Wrapper */
+/* ------------------ */
+
+.search-app__wrapper {
+  display: flex;
+}
+
+
+/* --------------- */
+/* Search App Main */
+/* --------------- */
+
+.search-app__main {
+  flex: 1 1 auto;
+  order: 2;
+  background: var(--background);
+  padding: 32px;
+}
+
+@media handheld, only screen and (max-width: 1279px) { 
+  .search-app__main {
+    padding: 24px;
+  }
+}
+
+
+/* ----------------- */
+/* Seach App Sidebar */
+/* ----------------- */
+
+.search-app__sidebar {
+  flex: 0 0 240px;
+  order: 1;
+  padding: 24px;
+}
+
+
+
+/* ------------ */
+/* Search Group */
+/* ------------ */
+
+details summary { 
+  cursor: pointer;
+}
+
+details summary > * {
+  display: inline;
+}
+
+.search-group {
+  border-bottom: 1px dotted #ddd;
+  margin: 0 0 24px 0;
+  padding: 0 0 24px 0;
+}
+
+.search-group__title {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* input group */
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.input-group .checkbox-container {
+  flex: 1 1 calc(100% / 1 - 28px);
+}
+
+/* The checkbox container */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: var(--accent);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 7px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* View more button  */
+.view-more-button {
+  appearance: none;
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.view-more-button:hover {
+  color: var(--primary);
+}
+
+
+
+
+
+
+/* -------------------- */
+/* keyword search input */
+/* -------------------- */
+
+#keyword-search {
+  position: relative;
+  font-size: 18px;
+}
+
+#keyword-search label {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+}
+
+#keyword-search-input {
+  padding: 16px 48px 16px 48px;
+  width: calc(100% - 96px);
+  font-size: 16px;
+  border-radius: 0px;
+  border: none;
+  box-shadow: 0 0 10px #00000015;
+  color: var(--text);
+  margin-bottom: 32px;
+  background-color: white;
+  border: 1px solid #ddd;
+}
+
+@media handheld, only screen and (max-width: 1279px) { 
+  #keyword-search-input {
+    margin-bottom: 24px;
+  }
+}
+
+#keyword-search-input:focus {
+  outline: none;
+  border: 1px solid var(--accent);
+  border-radius: 0px;
+}
+
+#keyword-search-clear {
+  text-decoration: none;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  color: #b3b3b3;
+}
+
+#keyword-search-clear:hover {
+  text-decoration: none;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  color: var(--accent);
+}
+
+
+
+
+
+
+/* ---------------- */
+/* Vehicle Listings */
+/* ---------------- */
+
+.vehicle-listings {
+  display: grid;
+  grid-gap: 2px;
+  row-gap: 32px;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit,calc(100% / 5 - 2px));
+}
+
+@media handheld, only screen and (max-width: 1440px) {
+  .vehicle-listings {
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+
+@media handheld, only screen and (max-width: 1280px) {
+  .vehicle-listings {
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+
+@media handheld, only screen and (max-width: 980px) {
+  .vehicle-listings {
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media handheld, only screen and (max-width: 780px) {
+  .vehicle-listings {
+    grid-gap: 2px;
+    row-gap: 16px;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* -------------- */
+/* listing styles */
+/* -------------- */
+
+.listing {
+  background-color: white;
+}
+
+.listing__image img {
+  max-width: 100%;
+}
+
+.listing__content {
+  padding: 16px;
+}
+
+.listing__title a {
+  font-size: 1.1rem;
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--heading);
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+}
+
+.listing__variant a {
+  font-weight: 400;
+  font-size: .8rem;
+  line-height: 1.3;
+  color: var(--text);
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.listing__spec {
+  flex: 0;
+  margin: -2px;
+  padding: 0;
+  margin-bottom: .8rem;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.listing__spec li {
+  flex: 0 0 auto;
+  margin: 2px;
+  padding: 0.4rem 0.8em;
+  background: var(--background);
+  border-radius: 99px;
+  font-size: .7rem;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.listing__price {
+  color: var(--heading);
+  font-size: 1.3rem;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.listing__finance {
+  color: var(--accent);
+  font-size: 0.9rem;
+  line-height: 1.3;
+  font-weight: 400;
+}
